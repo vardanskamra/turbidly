@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turbidly - CMS Admin</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Turbidly</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/category/Conspiracy%20Theories">Conspiracy Theories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/category/Philosophical%20Debates">Philosophical Debates</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/category/Geopolitics">Geopolitics</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/category/Controversies">Controversies</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/contribute">Contribute</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/about">About Us</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="container mt-4">
+    <h1>CMS Admin</h1>
+    <form id="add-article-form" class="mb-4" action="/cmsadmin/add-article" method="post">
+        <div class="form-group">
+            <label for="headline">Headline</label>
+            <input type="text" class="form-control" id="headline" name="headline" required>
+        </div>
+        <div class="form-group">
+            <label for="image">Image URL</label>
+            <input type="text" class="form-control" id="image" name="image" required>
+        </div>
+        <div class="form-group">
+            <label for="publish-date">Publish Date</label>
+            <input type="date" class="form-control" id="publish-date" name="publish-date" required>
+        </div>
+        <div class="form-group">
+            <label for="main-article">Main Article</label>
+            <textarea class="form-control" id="main-article" name="main-article" rows="6" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="categories">Categories</label>
+            <input type="text" class="form-control" id="categories" name="categories" required>
+        </div>
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" class="form-control" id="location" name="location" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Article</button>
+    </form>
+    <div id="article-list">
+        <!-- List of articles will be dynamically added here -->
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turbidly - Article</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        /* Custom styles can be added here */
+        .article-image {
+            width: 200px; /* Set the width of the image container */
+            float: left; /* Float the image to the left */
+            margin-right: 20px; /* Add some margin to the right of the image */
+            margin-bottom: 20px; /* Add some margin to the bottom of the image */
+        }
+        .article-content p {
+            margin-top: 0; /* Remove default margin from paragraphs */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Turbidly</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/category/Conspiracy%20Theories">Conspiracy Theories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/category/Philosophical%20Debates">Philosophical Debates</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/category/Geopolitics">Geopolitics</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/category/Controversies">Controversies</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/contribute">Contribute</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/about">About Us</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8">
+            <!-- Article Content -->
+            <article class="article-content">
+                <h1 class="mb-4"><%= article.headline %></h1>
+                <img src="<%= article.image %>" class="img-fluid mb-4 article-image" alt="Article Image">
+                <p class="lead"><%= article.mainArticle %></p>
+                <!-- Add other article content here as needed -->
+            </article>
+        </div>
+        <div class="col-md-4">
+            <!-- Sidebar -->
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Related Articles</h5>
+                    <!-- Add related articles or other sidebar content here -->
+                    <ul class="list-group">
+                        <!-- Example related articles list -->
+                        <li class="list-group-item"><a href="#">Related Article 1</a></li>
+                        <li class="list-group-item"><a href="#">Related Article 2</a></li>
+                        <li class="list-group-item"><a href="#">Related Article 3</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Additional Sidebar Content -->
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">Trending Topics</h5>
+                    <!-- Add trending topics or other sidebar content here -->
+                    <ul class="list-group">
+                        <!-- Example trending topics list -->
+                        <li class="list-group-item"><a href="#">Trending Topic 1</a></li>
+                        <li class="list-group-item"><a href="#">Trending Topic 2</a></li>
+                        <li class="list-group-item"><a href="#">Trending Topic 3</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    // Retrieve the mainArticle content and replace newline characters with <br> tags
+    //var mainArticleContent = document.querySelector('.article-content p').innerHTML;
+    //document.querySelector('.article-content p').innerHTML = mainArticleContent.replace(/\\n/g, '<br><br>');
+</script>
+
+
+</body>
+</html>

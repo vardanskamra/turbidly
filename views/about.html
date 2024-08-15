@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turbidly - About</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Turbidly</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/category/Conspiracy%20Theories">Conspiracy Theories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/category/Philosophical%20Debates">Philosophical Debates</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/category/Geopolitics">Geopolitics</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/contribute">Contribute</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/about">About Us</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="container mt-4">
+    <h1>About Us</h1>
+    <p id="xmlData"></p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Fetch and parse XML data
+        fetch("data/turbidly_info.xml") // Adjusted path to match the location of the XML file
+            .then(response => response.text())
+            .then(xmlString => {
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(xmlString, "text/xml");
+
+                // Parse XML and extract data
+                const description = xmlDoc.querySelector("description").textContent;
+                const mission = xmlDoc.querySelector("mission").textContent;
+                const vision = xmlDoc.querySelector("vision").textContent;
+                const email = xmlDoc.querySelector("email").textContent;
+                const phone = xmlDoc.querySelector("phone").textContent;
+                const address = xmlDoc.querySelector("address").textContent;
+                let members = "";
+                xmlDoc.querySelectorAll("member").forEach(member => {
+                    const name = member.querySelector("name").textContent;
+                    const role = member.querySelector("role").textContent;
+                    const email = member.querySelector("email").textContent;
+                    members += `<strong>Name:</strong> ${name}<br><strong>Role:</strong> ${role}<br><strong>Email:</strong> ${email}<br><br>`;
+                });
+
+                // Display XML data in the paragraph element
+                let xmlData = `<strong>About:</strong> ${description}<br><br>`;
+                xmlData += `<strong>Mission:</strong> ${mission}<br><br>`;
+                xmlData += `<strong>Vision:</strong> ${vision}<br><br>`;
+                xmlData += `<strong>Contact Email:</strong> ${email}<br>`;
+                xmlData += `<strong>Contact Phone:</strong> ${phone}<br>`;
+                xmlData += `<strong>Address:</strong> ${address}<br><br>`;
+                document.getElementById("xmlData").innerHTML = xmlData;
+            })
+            .catch(error => {
+                console.error("Error fetching XML data:", error);
+                document.getElementById("xmlData").textContent = "Failed to load XML data. Please try again later.";
+            });
+    });
+</script>
+
+
+</body>
+</html>
